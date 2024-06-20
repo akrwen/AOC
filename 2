@@ -1,0 +1,11 @@
+
+```bash
+#!/bin/bash
+IMAGE_DIR="/path/to/your/images/"
+for file in $IMAGE_DIR/*; do
+if [[ -f "$file" && ( -d "$file" || $(file —mime-type "$file") == 'image' ) ]]; then
+echo "Удаление файла: $file"
+rm "$file"
+fi
+done
+```
