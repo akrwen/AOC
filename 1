@@ -1,0 +1,11 @@
+```bash
+#!/bin/bash
+DIRECTORY="attachments"
+mkdir -p $DIRECTORY
+COUNT=0
+while [ "$COUNT" -lt 20 ]; do
+IMAGE_URL=$(curl -s "https://picsum.photos/seed/$RANDOM/800/400")
+FILENAME=$(basename "$IMAGE_URL")
+curl -sLO "$IMAGE_URL" -o "$DIRECTORY/$FILENAME"
+COUNT=$((COUNT + 1))
+done
